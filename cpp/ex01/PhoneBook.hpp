@@ -19,7 +19,7 @@ void    PhoneBook::addContact(Contact obj, int i)
 
 void    PhoneBook::display(Contact con, int i)
 {
-    std::cout << con
+    this->contact[i];
     //std::cout << i << std::endl;
     //std::cout << i << " | " << con.firstname << " | " << std::endl;
     //return (this->firstname);
