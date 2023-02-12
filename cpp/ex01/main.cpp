@@ -9,41 +9,27 @@ std::string    ToUpper(std::string input)
     }
     return (input);
 }
-int main(void)
+int main(int ac, char **av)
 {
     PhoneBook phone;
     Contact con;
     std::string input;
-    std::string first_name, last_name, nick_name, phone_number, darket_secret;
+    int num_input;
     int i = 0;
-    while(true)
+    while(true && ac == 1)
     {
-        std::cout << "Enter a command please: (ADD/EXIT/SEARCH)" << std::endl;
+        std::cout << "Enter a command please: (ADD/EXIT/SEARCH) : ";
         std::cin >> input;
         if((ToUpper(input)) == "ADD")
         {
-            std::cout << "Enter your first name please: " << std::endl;
-            std::cin >> first_name;
-            con.set_contact_firstname(first_name);
-            std::cout << "Enter your last name please: " << std::endl;
-            std::cin >> last_name;
-            con.set_contact_lastname(last_name);
-            std::cout << "Enter your nickname please: " << std::endl;
-            std::cin >> nick_name;
-            con.set_contact_nick_name(nick_name);
-            std::cout << "Enter your phone number please: " << std::endl;
-            std::cin >> phone_number;
-            con.set_contact_phone_number(phone_number);
-            std::cout << "Enter your darket secret please: " << std::endl;
-            std::cin >> darket_secret;
-            con.set_contact_darket_secret(darket_secret);
-            phone.addContact(con, i);
+            phone.addContact(i);
         }
         else if((ToUpper(input)) == "SEARCH")
         {
-            phone.display(con, i);
-            //std::cout << "Please enter a valid index:" << std::endl;
-            //std
+            phone.display(i);
+            std::cout << "Please enter a valid index:" << std::endl;
+            std::cin >> num_input;
+            phone.displayinfo(num_input, i);
         }
         else if((ToUpper(input)) == "EXIT")
         {
@@ -54,7 +40,9 @@ int main(void)
             std::cout << "Enter a valid command please" << std::endl;
         if((ToUpper(input)) == "ADD")
             i++;
-            if(i == 8)
-                i = 0;
+        if(i == 8)
+            i = 0;
     }
+    std::cout << "TO MUCH ARGS." << std::endl;
+    return (0);
 }

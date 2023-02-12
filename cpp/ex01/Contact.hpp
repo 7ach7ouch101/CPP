@@ -22,6 +22,7 @@ class Contact
         std::string get_nick_name();
         std::string get_phone_number();
         std::string get_darket_secret();
+        
 };
 
 #endif
