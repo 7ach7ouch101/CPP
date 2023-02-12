@@ -9,6 +9,7 @@ class PhoneBook
         Contact contact[8];
     public:
         void    addContact(Contact obj, int i);
+        void    display(Contact con, int i);
 };
 
 void    PhoneBook::addContact(Contact obj, int i)
@@ -16,4 +17,11 @@ void    PhoneBook::addContact(Contact obj, int i)
     this->contact[i] = obj;
 }
 
+void    PhoneBook::display(Contact con, int i)
+{
+    std::cout << con
+    //std::cout << i << std::endl;
+    //std::cout << i << " | " << con.firstname << " | " << std::endl;
+    //return (this->firstname);
+}
 #endif

@@ -39,18 +39,21 @@ int main(void)
             con.set_contact_darket_secret(darket_secret);
             phone.addContact(con, i);
         }
-        if((ToUpper(input)) == "SEARCH")
+        else if((ToUpper(input)) == "SEARCH")
         {
-            con.display(con, i);
+            phone.display(con, i);
             //std::cout << "Please enter a valid index:" << std::endl;
             //std
         }
-        if((ToUpper(input)) == "EXIT")
+        else if((ToUpper(input)) == "EXIT")
         {
             std::cout << "BYEEEE ;)" << std::endl;
             exit(0);
         }
-        i++;
+        else
+            std::cout << "Enter a valid command please" << std::endl;
+        if((ToUpper(input)) == "ADD")
+            i++;
             if(i == 8)
                 i = 0;
     }

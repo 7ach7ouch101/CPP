@@ -29,10 +29,3 @@ void    Contact::set_contact_darket_secret(std::string darketsecret)
     this->darkestsecret = darketsecret;
     return ;
 }
-
-void    Contact::display(Contact con, int i)
-{
-    
-    //std::cout << i << " | " << con.firstname << " | " << std::endl;
-    //return (this->firstname);
-}
