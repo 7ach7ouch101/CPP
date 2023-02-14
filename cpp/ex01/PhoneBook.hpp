@@ -55,7 +55,6 @@ void    PhoneBook::display(int i)
 
 void    PhoneBook::displayinfo(int num_input, int i)
 {
-    std::cout << "hazakiiiiiiii." << std::endl;
     if(num_input >= i || num_input < 0)
     {
         std::cout << "Please enter a valid index." << std::endl;

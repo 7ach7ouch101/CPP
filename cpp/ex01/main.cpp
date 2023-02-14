@@ -1,34 +1,19 @@
 #include "PhoneBook.hpp"
-std::string    ToUpper(std::string input)
-{
-    int i = 0;
-    while(input[i])
-    {
-        input[i] = std::toupper(input[i]);
-        i++;
-    }
-    return (input);
-}
+
 int main(int ac, char **av)
 {
     PhoneBook phone;
     Contact con;
     std::string input;
     std::string num_input;
+
+    (void)av;
     int i = 0;
     int index = 0;
     while(true && ac == 1)
     {
-        // if (std::cin.eof() || std::cin.fail())
-        // {
-        //     std::clearerr(stdin);
-        //     std::cin.clear();
-        //     std::cout << std::endl;
-        // }
         std::cout << "Enter a command please: (ADD/EXIT/SEARCH) : ";
         std::getline(std::cin, input);
-        // if (!input[0])
-        //     continue;
         if (std::cin.eof())
                 exit(1);
         if(input == "ADD")
@@ -43,7 +28,6 @@ int main(int ac, char **av)
             if (num_input[0] && isdigit(num_input[0]))
             {
                 index = std::stoi(num_input);
-                std::cout << index << "++++++" << std::endl;
                 phone.displayinfo(index, i);
             }
         }
