@@ -1,6 +1,7 @@
 # CPP00
 
 namespaces:
+
 1->namespaces provides a method for preventing name conflicts in large projects. It allows you to group symbols that are related together.
 
 2->All the entities included in the C++ standard library are included in the std namespace.
@@ -8,6 +9,7 @@ namespaces:
 3->However, using namespace std is considered bad practice, as it imports the entirety of the std namespace into the current namespace of the program. It's better to use scope resolution operator to access the specific entity (like std::cout).
 
 stdio streams:
+
 1->Streams acts as an intermediaries between the programs and the actual IO devices. It frees the programmers from handling the actual devices.
 
 2-> << >> redirects the flow to or from a stream (like std::cout or std::cin).
@@ -15,6 +17,7 @@ stdio streams:
 3->Object std::endl handles newline character on different OS.
 
 class & instance:
+
 1->C++ is an object-oriented programming language. An object is created from a class. Everything in C++ is associated with classes and objects, along with its attributes(variables) and methods(functions).
 
 2->A class is a user-defined data type. It works as an object constructor, or a blueprint for creating objects. A class is static and it's a model which objects are built on. Instance is the dynamic part and it's an instantiation of a class.
@@ -30,19 +33,23 @@ class & instance:
 7->The compiler automatically calls constructors when defining class objects and calls destructors when class objects go out of scope.
 
 member attributes & functions:
+
 1->A member function of a class is a function that has its definition or its prototype within the class definition like any other variable. It operates on any object of the class of which it is a member, and has access to all the members of a class for that object.
 
 2->Member attribute is a variable you have in your class, and you may use from an instance.
 
 this pointer (the self keyword):
+
 1->In C++, each object gets its own copy of data members and all objects share a single copy of member functions. To refer to your current instance, use the special instance pointer this.
 
 2->One member function only has one copy and is used by multiple objects, how are the proper data members accessed and updated? The compiler supplies an implicit pointer along with the names of the functions as 'this'.
 
 initialization list:
+
 1->Initialization list is used in initializing the data members of a class. The list of members to be initialized is indicated with constructor as a comma-separated list followed by a colon.
 
 const:
+
 1->Variables declared with const added become constants and cannot be altered by the program.
 
 2->const data members must be initialized using initialization list. No memory is allocated separately for const data member. It is folded in the symbol table due to which we need to initialize it.
@@ -52,6 +59,7 @@ const:
 4->The more your code is const and read only, the more your code will be robust in the long term.
 
 visibility:
+
 1->Public and private will allow you to control the encapsulation of the members of the class. It means that the attributes and member functions will only be visible from inside the class or from the outside.
 
 2->Public attributes and functions can be accessed both inside and outside of the class.
@@ -61,6 +69,7 @@ visibility:
 4->Keep in mind: for attributes or functions that have nothing to do with the user, keep them private in the class. When designing the class, always think about what to keep internally or expose to the outside.
 
 class vs struct:
+
 1->A class can also contain functions (called methods in C++). The member attributes and methods are hidden from the outside world, unless their declaration follows a public label.
 
 2->Special methods (constructor and destructor) in C++. They run automatically when an object (an instance of the class) is created and destroyed.
@@ -74,6 +83,7 @@ class vs struct:
 6->struct and class work almost the same way in C++. The difference is that the default accessibility / scope of member variables and methods is private in a class, while it's public in a struct. The use of class is generally preferred.
 
 accessors (getters):
+
 1->An accessor is a member function that allows someone to retrieve the contents of a protected data member.
 
 2->The accessor must have the same type as the returned variable.
@@ -87,6 +97,7 @@ accessors (getters):
 6->They usually have the prefix of get and set. Getter can only access in the read-only mode and won't alter the content of the class. It allows you to have some control over what to give to the user. It also sets control to the user's input and make sure that they make sense.
 
 C++ strings:
+
 1->str.length(). Count the number of characters in a string.
 
 2->str[]. Use square brackets to access individual characters within a string. No range-checking.
@@ -108,12 +119,15 @@ C++ strings:
 10->Important: When using (std::string str) as parameter, it takes a copy from the calling function to the destination function. It is not fast to dynamically allocate a string to create a copy. If you are not going to modify the string, send it as a const &, in this way, it will not create a copy.
 
 Difference between std::cin and getline:
+
   std::cin >> string:
+  
 1->Each extracted character is appended to the string.
 
 2->The extraction operations use whitespaces as separators. Therefore, this operation will only extract what can be considered as a word from the stream.
 
   getline:
+  
 1->To extract entire lines of text.
 
 2->The extraction stops until the delimitation character, or the end of file is reached, or some other error occurs during the input operation.
@@ -121,6 +135,7 @@ Difference between std::cin and getline:
 # CPP01
 
 New and delete:
+
 1->malloc() an object does not work in C++, because it does not call the constructor of the object. Similarly, if you free() an object, it also won't call the destructor.
 
 2->new() and delete() use malloc() and free() in reality, but they also call the constructor and destructor in an appropriate way.
@@ -128,6 +143,7 @@ New and delete:
 3->new() does not take parameters. So need to think of ways to initialise values.
 
 Stack vs heap memory:
+
 ->Both of these memories locate in the RAM. The way the memory will be assigned is different
   Stack:
 1->Has predefined size (around 2GB).
@@ -141,6 +157,7 @@ Stack vs heap memory:
 5->If you can allocate on the stack, choose stack.
 
   Heap:
+  
 1->Has a predefined size but it can grow.
 
 2->Use new() keyword to allocate on the heap.
@@ -152,6 +169,7 @@ Stack vs heap memory:
 5->Dynamically allocated memory must be accessed through a pointer. Dereferencing a pointer is slower than accessing a variable directly.
 
 Pointers:
+
 1->Pointers are extremely important for managing and manipulating memory.
 
 2->A pointer is an integer that stores a memory address. It is the address of where that specific memory is.
@@ -167,6 +185,7 @@ Pointers:
 7->Pointers themselves are also variables and stored in memory.
 
 References:
+
 References are aliases for existing variables. It is a pointer that is constant and always dereferenced and never void.
 
 1->A way for us to reference an existing variable. But pointer can be pointing to a non-existing address.
@@ -197,6 +216,7 @@ References are aliases for existing variables. It is a pointer that is constant 
 Pointers and references are essentially the same thing, regarding how the computer will do with them. Pointers are more flexible than references. If something should always exist and never change, use a references. But if it should not always exist and can change, use a pointer.
 
 Destructor called without a constructor:
+
 1->Passing an instance of a class by value (not by pointer or reference) invokes the copy constructor. The compiler implements the copy constructor by default if the class definition does not explicitly supply one.
 
 2->The compiler-generated copy constructor will not call one of the other constructors you've implemented. But the destructor will be invoked to clean up the copy when done.
@@ -206,6 +226,7 @@ Destructor called without a constructor:
 4->In order to actually change the original instance, you need to pass the instance with a pointer or a reference. So the function can actually access the location of the original instance and make change to that instance/data member. If such case exists, a decision needs to be made between a reference and a pointer.
 
 Streams:
+
 1->A stream is an abstract representation of an input device or an output device that is a sequential source or destination for data in your program. It is represented by a class type.
 
 2->You can visualize a stream as a sequence of bytes flowing between an external device and the main memory of your computer. You can write data to an output stream and read data from an input stream; some streams provide the ability for both input and output.
@@ -219,6 +240,7 @@ A program will work with a variety of disparate physical devices without necessi
 The physical reality of an output stream can be any device to which a sequence of bytes can be transferred. File stream I/O will typically be to a file on a disk or on a solid state device.
 
 The standard library defines three standard output stream objects:
+
 1->std::cout : standard output stream.
 
 2->std::cerr : unbuffered standard error stream (data is written immediately to the output device).
@@ -228,6 +250,7 @@ The standard library defines three standard output stream objects:
 4->In principle, an input stream can be any serial source of data, but it's typically a disk file or the keyboard.
 
 File streams:
+
 1->Streams that interact with files. There are three types of stream objects for working with files: ifstream, ofstream, and fstream.
 
 2->These classes have istream, ostream, and iostream as base classes, respectively.
